@@ -1,0 +1,174 @@
+:root {
+  --bg-primary: #0A0E1A;
+  --bg-secondary: #111827;
+  --bg-card: rgba(19, 28, 46, 0.7);
+  --bg-card-hover: rgba(26, 38, 62, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(16, 185, 129, 0.5);
+
+  --emerald-400: #34D399;
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
+
+  --violet-500: #8B5CF6;
+  --blue-500: #3B82F6;
+  --amber-500: #F59E0B;
+  --indigo-500: #6366F1;
+
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 14, 26, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--emerald-500);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-glow {
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
+}
+
+/* Neon Text Glow */
+.text-neon-emerald {
+  color: var(--emerald-400);
+  text-shadow: 0 0 12px var(--emerald-glow);
+}
+
+.text-neon-violet {
+  color: #A78BFA;
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.35);
+}
+
+/* Heatmap Square */
+.heatmap-cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.heatmap-cell:hover {
+  transform: scale(1.35);
+  z-index: 10;
+}
+.level-0 { background: rgba(255, 255, 255, 0.05); }
+.level-1 { background: #064E3B; border: 1px solid rgba(16, 185, 129, 0.2); }
+.level-2 { background: #047857; box-shadow: 0 0 4px rgba(16, 185, 129, 0.3); }
+.level-3 { background: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+.level-4 { background: #F59E0B; box-shadow: 0 0 12px rgba(245, 158, 11, 0.8); }
+
+/* Ant Design Custom Overrides */
+.ant-card {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 14px !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+  font-weight: 600 !important;
+}
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 100%) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.55) !important;
+  transform: translateY(-1px);
+}
+
+.ant-modal-content {
+  background: #131C2E !important;
+  border: 1px solid var(--border-subtle) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 16px !important;
+}
+
+/* 48 Timeblock Grid */
+.timeblock-item {
+  position: relative;
+  height: 38px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.timeblock-item:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+  z-index: 5;
+}
+.timeblock-item.selected {
+  outline: 2px solid var(--emerald-400);
+  outline-offset: 1px;
+  box-shadow: 0 0 10px var(--emerald-glow);
+}
+
+/* Micro animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+.pulse-animation {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
